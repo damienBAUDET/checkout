@@ -180,9 +180,12 @@
 </div>
 
 <script>
-    window.addEventListener("orientationchange", function() {
+    function adjustHeight() {
         document.body.style.height = window.innerHeight + "px";
-    });
+    }
+    window.addEventListener("resize", adjustHeight);
+    window.addEventListener("orientationchange", adjustHeight);
+    adjustHeight(); // Exécute au chargement de la page
 
     let total = 0;
     let summary = {};
