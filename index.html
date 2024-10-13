@@ -25,7 +25,7 @@
             font-size: 1.5rem;
         }
         .service-list {
-            max-height: 500px;
+            max-height: 600px; /* Ajuste la hauteur maximale pour tablette */
             overflow-y: auto;
         }
         .calc-btn {
@@ -52,8 +52,8 @@
         }
 
         .highlight-box {
-            font-size: 2rem;
-            padding: 15px;
+            font-size: 1.8rem;
+            padding: 10px;
             margin: 10px 0;
             border-radius: 10px;
             background-color: #2a2a2a;
@@ -63,15 +63,22 @@
         .highlight-box-danger {
             border-color: #f44336;
         }
+
+        @media (min-width: 768px) {
+            .service-list, #summaryList {
+                max-height: 700px;
+                overflow-y: auto;
+            }
+        }
     </style>
 </head>
 <body class="bg-dark-mode">
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-lg-4 col-md-6">
             <div class="row">
-                <div class="col-md-4 service-list">
+                <div class="col-md-12 service-list">
                     <h4>Tickets</h4>
                     <button class="btn btn-primary service-btn" data-name="Entrée simple" data-price="10">Entrée simple - 10€</button>
                     <button class="btn btn-primary service-btn" data-name="Table simple" data-price="50">Table simple - 50€</button>
@@ -79,7 +86,7 @@
                     <button class="btn btn-primary service-btn" data-name="Table VIP Carré Or" data-price="400">Table VIP Carré Or - 400€</button>
                 </div>
 
-                <div class="col-md-4 service-list">
+                <div class="col-md-12 service-list">
                     <h4>Plats</h4>
                     <button class="btn btn-primary service-btn" data-name="Cuisse de poulet" data-price="9">Cuisse de poulet - 9€</button>
                     <button class="btn btn-primary service-btn" data-name="Aile farcie" data-price="9">Aile farcie - 9€</button>
@@ -90,7 +97,7 @@
                     <button class="btn btn-primary service-btn" data-name="Sandwich Banmi" data-price="6">Sandwich Banmi - 6€</button>
                 </div>
 
-                <div class="col-md-4 service-list">
+                <div class="col-md-12 service-list">
                     <h4>Boissons</h4>
                     <button class="btn btn-primary service-btn" data-name="Boissons" data-price="2">Boissons - 2€</button>
                     <button class="btn btn-primary service-btn" data-name="Champagne" data-price="30">Champagne - 30€</button>
@@ -99,7 +106,7 @@
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-lg-4 col-md-6">
             <div class="highlight-box" id="totalAmountBox">
                 <strong>Total à payer :</strong> <span id="totalAmount">0€</span>
             </div>
@@ -125,15 +132,17 @@
             </div>
 
             <div class="highlight-box" id="changeAmountBox">
-                <strong>Monnaie :</strong> <span id="changeAmount">0€</span>
+                <strong>Monnaie à rendre :</strong> <span id="changeAmount">0€</span>
             </div>
 
             <div class="mt-3">
                 <button id="resetButton" class="btn btn-warning">Réinitialiser</button>
             </div>
+        </div>
 
-            <h3 class="summary">Résumé</h3>
-            <ul id="summaryList" class="list-group"></ul>
+        <div class="col-lg-4 col-md-12">
+            <h3>Résumé</h3>
+            <ul id="summaryList" class="list-group" style="max-height: 500px; overflow-y: auto;"></ul>
         </div>
     </div>
 </div>
