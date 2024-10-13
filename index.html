@@ -18,6 +18,7 @@
             width: 100%;
             text-align: center;
             padding: 10px;
+            white-space: nowrap;
         }
         .summary {
             margin-top: 20px;
@@ -47,6 +48,15 @@
         ul.list-group-item {
             background-color: #2c2c2c;
         }
+        .service-text {
+            font-size: 1.2rem;
+            margin-bottom: 5px; /* Un peu d'espace entre le texte et le prix */
+        }
+
+        .service-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
 
         .highlight-box {
             font-size: 1.5rem;
@@ -72,7 +82,10 @@
                     <h4>Tickets</h4>
                     <div class="row">
                         <div class="col-6">
-                            <button class="btn btn-primary service-btn" data-name="Entrée simple" data-price="10">Entrée simple - 10€</button>
+                            <button class="btn btn-primary service-btn" data-name="Entrée simple" data-price="10">
+                                <span class="service-text">Entrée simple</span><br>
+                                <span class="service-price">10€</span>
+                            </button>
                         </div>
                         <div class="col-6">
                             <button class="btn btn-primary service-btn" data-name="Table simple" data-price="50">Table simple - 50€</button>
@@ -99,7 +112,10 @@
                             <button class="btn btn-primary service-btn" data-name="Pho" data-price="9">Pho - 9€</button>
                         </div>
                         <div class="col-6">
-                            <button class="btn btn-primary service-btn" data-name="Salade de papaye" data-price="6">Salade de papaye - 6€</button>
+                            <button class="btn btn-primary service-btn" data-name="Salade de papaye" data-price="6">
+                                <span class="service-text">Salade de papaye</span><br>
+                                <span class="service-price">6€</span>
+                            </button>
                         </div>
                         <div class="col-6">
                             <button class="btn btn-primary service-btn" data-name="Laarb boeuf" data-price="8">Laarb boeuf - 8€</button>
