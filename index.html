@@ -77,8 +77,8 @@
                 flex-wrap: nowrap;
             }
             .service-list, #summaryList {
-                max-height: 80vh;
-                overflow-y: auto;
+                max-height: calc(100vh - 100px);
+                overflow-y: visible;
             }
         }
     </style>
@@ -88,7 +88,6 @@
 <div class="container-fluid">
     <div class="row flex-nowrap">
         <div class="col-lg-4 col-md-6 d-flex flex-column">
-            <h3>Services proposés</h3>
             <div class="row flex-grow-1">
                 <div class="col-md-12 service-list">
                     <h4>Tickets</h4>
