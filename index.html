@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Gestion de Caisse</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -65,30 +65,42 @@
             border-color: #f44336;
         }
 
+        /* Version pour l'orientation paysage */
         @media (orientation: landscape) {
             html, body {
                 width: 100vw;
                 height: 100vh;
-                overflow: hidden;
                 margin: 0;
                 padding: 0;
+                overflow: hidden; /* Empêche le défilement des pages */
             }
+
+            /* Le container principal prend toute la hauteur disponible */
             .container-fluid {
                 height: 100vh;
                 display: flex;
                 flex-direction: row;
-                justify-content: space-between;
-                align-items: stretch;
+                justify-content: space-between; /* Distribue les colonnes de manière égale */
             }
-            .row {
-                height: 100%;
+
+            /* Les colonnes occupent chacune 1/3 de la largeur disponible */
+            .col-lg-4 {
+                flex: 1;
                 display: flex;
                 flex-direction: column;
+                margin: 10px; /* Ajout d'une marge pour éviter que tout soit collé aux bords */
             }
+
+            /* La liste des services et le résumé utilisent tout l'espace vertical disponible */
             .service-list, #summaryList {
-                flex-grow: 1; /* Permet à la liste de prendre toute la hauteur disponible */
-                overflow-y: auto; /* Gère le défilement si nécessaire, mais devrait être limité à la hauteur visible */
-                max-height: none; /* Supprime la limitation en hauteur */
+                flex-grow: 1; /* Permet à ces éléments de grandir pour remplir l'espace */
+                max-height: calc(100vh - 50px); /* Ajustez cette valeur pour une meilleure gestion de la hauteur */
+                overflow-y: auto; /* Active le défilement si le contenu dépasse la hauteur */
+            }
+
+            /* Chaque élément dans la colonne est centré verticalement */
+            .highlight-box, #calculator, .mt-3 {
+                margin: 10px 0;
             }
         }
     </style>
@@ -168,6 +180,10 @@
 </div>
 
 <script>
+    window.addEventListener("orientationchange", function() {
+        document.body.style.height = window.innerHeight + "px";
+    });
+    
     let total = 0;
     let summary = {};
     const totalAmountElement = document.getElementById('totalAmount');
