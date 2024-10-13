@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Gestion de Caisse</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -24,10 +24,6 @@
         }
         .total, .change {
             font-size: 1.5rem;
-        }
-        .service-list {
-            max-height: 250px;
-            overflow-y: auto;
         }
         .calc-btn {
             font-size: 1.5rem;
@@ -64,45 +60,6 @@
         .highlight-box-danger {
             border-color: #f44336;
         }
-
-        /* Version pour l'orientation paysage */
-        @media (orientation: landscape) {
-            html, body {
-                width: 100vw;
-                height: 100vh;
-                margin: 0;
-                padding: 0;
-                overflow: hidden; /* Empêche le défilement des pages */
-            }
-
-            /* Le container principal prend toute la hauteur disponible */
-            .container-fluid {
-                height: 100vh;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between; /* Distribue les colonnes de manière égale */
-            }
-
-            /* Les colonnes occupent chacune 1/3 de la largeur disponible */
-            .col-lg-4 {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                margin: 10px; /* Ajout d'une marge pour éviter que tout soit collé aux bords */
-            }
-
-            /* La liste des services et le résumé utilisent tout l'espace vertical disponible */
-            .service-list, #summaryList {
-                flex-grow: 1; /* Permet à ces éléments de grandir pour remplir l'espace */
-                max-height: calc(100vh - 50px); /* Ajustez cette valeur pour une meilleure gestion de la hauteur */
-                overflow-y: auto; /* Active le défilement si le contenu dépasse la hauteur */
-            }
-
-            /* Chaque élément dans la colonne est centré verticalement */
-            .highlight-box, #calculator, .mt-3 {
-                margin: 10px 0;
-            }
-        }
     </style>
 </head>
 <body class="bg-dark-mode">
@@ -113,28 +70,62 @@
             <div class="row flex-grow-1">
                 <div class="col-md-12 service-list">
                     <h4>Tickets</h4>
-                    <button class="btn btn-primary service-btn" data-name="Entrée simple" data-price="10">Entrée simple - 10€</button>
-                    <button class="btn btn-primary service-btn" data-name="Table simple" data-price="50">Table simple - 50€</button>
-                    <button class="btn btn-primary service-btn" data-name="Table VIP" data-price="300">Table VIP - 300€</button>
-                    <button class="btn btn-primary service-btn" data-name="Table VIP Carré Or" data-price="400">Table VIP Carré Or - 400€</button>
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-primary service-btn" data-name="Entrée simple" data-price="10">Entrée simple - 10€</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-primary service-btn" data-name="Table simple" data-price="50">Table simple - 50€</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-primary service-btn" data-name="Table VIP" data-price="300">Table VIP - 300€</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-primary service-btn" data-name="Table VIP Carré Or" data-price="400">Table VIP Carré Or - 400€</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-md-12 service-list">
                     <h4>Plats</h4>
-                    <button class="btn btn-primary service-btn" data-name="Cuisse de poulet" data-price="9">Cuisse de poulet - 9€</button>
-                    <button class="btn btn-primary service-btn" data-name="Aile farcie" data-price="9">Aile farcie - 9€</button>
-                    <button class="btn btn-primary service-btn" data-name="Pho" data-price="9">Pho - 9€</button>
-                    <button class="btn btn-primary service-btn" data-name="Salade de papaye" data-price="6">Salade de papaye - 6€</button>
-                    <button class="btn btn-primary service-btn" data-name="Laarb boeuf" data-price="8">Laarb boeuf - 8€</button>
-                    <button class="btn btn-primary service-btn" data-name="Nam Vam" data-price="4">Nam Vam - 4€</button>
-                    <button class="btn btn-primary service-btn" data-name="Sandwich Banmi" data-price="6">Sandwich Banmi - 6€</button>
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-primary service-btn" data-name="Cuisse de poulet" data-price="9">Cuisse de poulet - 9€</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-primary service-btn" data-name="Aile farcie" data-price="9">Aile farcie - 9€</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-primary service-btn" data-name="Pho" data-price="9">Pho - 9€</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-primary service-btn" data-name="Salade de papaye" data-price="6">Salade de papaye - 6€</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-primary service-btn" data-name="Laarb boeuf" data-price="8">Laarb boeuf - 8€</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-primary service-btn" data-name="Nam Vam" data-price="4">Nam Vam - 4€</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-primary service-btn" data-name="Sandwich Banmi" data-price="6">Sandwich Banmi - 6€</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-md-12 service-list">
                     <h4>Boissons</h4>
-                    <button class="btn btn-primary service-btn" data-name="Boissons" data-price="2">Boissons - 2€</button>
-                    <button class="btn btn-primary service-btn" data-name="Champagne" data-price="30">Champagne - 30€</button>
-                    <button class="btn btn-primary service-btn" data-name="Mousseux" data-price="15">Mousseux - 15€</button>
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-primary service-btn" data-name="Boissons" data-price="2">Boissons - 2€</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-primary service-btn" data-name="Champagne" data-price="30">Champagne - 30€</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-primary service-btn" data-name="Mousseux" data-price="15">Mousseux - 15€</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -180,13 +171,6 @@
 </div>
 
 <script>
-    function adjustHeight() {
-        document.body.style.height = window.innerHeight + "px";
-    }
-    window.addEventListener("resize", adjustHeight);
-    window.addEventListener("orientationchange", adjustHeight);
-    adjustHeight(); // Exécute au chargement de la page
-
     let total = 0;
     let summary = {};
     const totalAmountElement = document.getElementById('totalAmount');
